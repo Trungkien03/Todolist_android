@@ -34,6 +34,7 @@ android {
 dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("com.google.android.material:material:1.9.0")
+    implementation("it.xabaras.android:recyclerview-swipedecorator:1.4")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

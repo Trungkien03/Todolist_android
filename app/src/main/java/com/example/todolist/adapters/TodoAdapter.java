@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todolist.MainActivity;
 import com.example.todolist.R;
+import com.example.todolist.UI.AddNewTask;
 import com.example.todolist.models.TodoModel;
 import com.example.todolist.utils.DatabaseHelper;
 
@@ -78,12 +79,12 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> 
         TodoModel item = mList.get(position);
 
         Bundle bundle = new Bundle();
-        bundle.getInt("id", item.getId());
-        bundle.getString("task", item.getTask());
+        bundle.putInt("id", item.getId()); // Sửa lỗi ở đây
+        bundle.putString("task", item.getTask()); // Sửa lỗi ở đây
 
-        mydb.updateTask(item.getId(), item.getTask());
-        notifyItemChanged(position);
-    }
+        AddNewTask task = new AddNewTask();
+        task.setArguments(bundle);
+        task.show(activity.getSupportFragmentManager(), task.getTag());}
 
     @Override
     public int getItemCount() {
